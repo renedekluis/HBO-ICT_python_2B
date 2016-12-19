@@ -1,0 +1,6 @@
+dutch      ==>          1
+belg       ==>          1
+leopold    ==>          1
+bier       ==>          1
+dublin     ==>          1
+leo        ==>          1

@@ -7,6 +7,13 @@ dub        ==> 1
 dubl       ==> 1         
 dubli      ==> 1         
 dublin     ==> 1         
+b          ==> 2         
+be         ==> 1         
+bel        ==> 1         
+belg       ==> 1         
+bi         ==> 1         
+bie        ==> 1         
+bier       ==> 1         
 l          ==> 2         
 le         ==> 2         
 leo        ==> 2         
@@ -14,10 +21,3 @@ leop       ==> 1
 leopo      ==> 1         
 leopol     ==> 1         
 leopold    ==> 1         
-b          ==> 2         
-bi         ==> 1         
-bie        ==> 1         
-bier       ==> 1         
-be         ==> 1         
-bel        ==> 1         
-belg       ==> 1         

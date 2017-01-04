@@ -1,7 +1,7 @@
 
 t = [[1]]
 
-def b(n,k):
+def B(n,k):
 	"""
 	This function creates the piramid of pascal
 	
@@ -33,15 +33,24 @@ def b(n,k):
 		
 	if len(t) > n:
 		if t[n][k] == None:
-			t[n][k] = b(n-1,k-1) + b(n-1,k)
-
+			t[n][k] = B(n-1,k-1) + B(n-1,k)
+			return t[n][k]
+		else:
+			return t[n][k]
 	else:
-		temp = [None]*(len(t)+1)
+		
+		temp = [None] * (len(t)+1)
 		temp[0] = 1
 		temp[-1] = 1
 		t.append(temp)
-		b(n,k)
-	
-	return t[n][k]
+		return B(n,k)
+
 		
-print(b(5,2))
+print(B(5,2))
+
+
+
+
+
+
+

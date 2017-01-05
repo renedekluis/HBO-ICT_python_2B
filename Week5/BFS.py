@@ -51,8 +51,7 @@ def BFS(G,s):
                 v.predecessor = u  # v krijgt het attribuut 'predecessor'
                 q.enqueue(v)
 
-
-
+				
 def show_tree_info(G):
     print('tree:', end = ' ')
     for v in vertices(G):
@@ -81,16 +80,22 @@ def show_sorted_tree_info(G):
     print()
 
 
-def path_BFS(G,u,v):
-    BFS(G,u)
-    a = []
-    if hasattr(v,'predecessor'):
-        current = v
-        while current:
-            a.append(current)
-            current = current.predecessor
-        a.reverse()
-    return a
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

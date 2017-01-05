@@ -1,66 +1,60 @@
+import sys
+sys.path.append("../")
 from BFS import *
 
 
+def no_cycles(G):
+	"""
+	This function looks if the graph contains a cycles .
 
-v = [Vertex(i) for i in range(4)]
+	Parameters
+	----------
+	G: Dictionary
+		Dictionary where graph layout is written. 
+   
 
-g = {
-	v[0] : [v[1],v[3]],
-	v[1] : [v[2],v[0]],
-	v[2] : [v[3],v[1]],
-	v[3] : [v[2],v[0]]
-	}
+	Return
+	------
+	Doesn't_consist_cycles : boolean
+		This boolean returns if the given graph doesn't have cycles.       
 
+	EXAMPLE:
 	
-g2 = {
-	v[0] : [v[1]],
-	v[1] : [v[2],v[0]],
-	v[2] : [v[3],v[1]],
-	v[3] : [v[2]]
+	>>> G = {
+			v[0]:[v[1]],
+			v[1]:[v[2],v[0]],
+			v[2]:[v[3],v[1]],
+			v[3]:[v[0]]
+			}
+	>>> True
+	""" 		
+	return (len(edges(G))/2) < len(G)
+
+
+
+#Graaf bovenstaand aan de opdracht
+v = [Vertex(i) for i in range(6)]
+
+g1 = {
+	v[0] : [v[3],v[4]],
+	v[1] : [v[3],v[4],v[5]],
+	v[2] : [v[3],v[4],v[5]],
+	v[3] : [v[0],v[1],v[2],v[4]],
+	v[4] : [v[0],v[1],v[2],v[3]],
+	v[5] : [v[1],v[2]]
 	}	
-	
-	
-def no_cycles(G, x = 0, start_node = 0):
-	BFS(G,v[start_node])
-	a = edges(G)
-	start = a[start_node]
-	
-	if x < len(a):
-		print(
-			"checking:",
-			start,
-			"==",
-			a[x],
-			"\t|\t",
-			start[0] == a[x][1]
-		)
-		print(a[x][1]<=start_node)
-		if start[0] == a[x][1] and a[x] != (start[1],start[0]):
-			print(start,a[x])
-			return False
-	
-		no_cycles(G,x+1,start_node)
-		
-	else:
-		print("\n===========================================\n")
-		if start_node < len(a):
-			start_node+=1
-			return no_cycles(G,0+start_node,start_node)
-		else:
-			return True
 
-		
+print("\nGraaf 1 (bovenstaand aan de opdracht):")
+print(no_cycles(g1))
 
 
 
 
-print(no_cycles(g))
+#//////////////////////////////////////////////////////////////
 
-
-
-print(no_cycles(g2))
-'''
-G = {
+#Graaf onderstaand aan de opdracht
+v = [Vertex(i) for i in range(8)]
+g2 = {
 	v[0] : [v[4],v[5]],
 	v[1] : [v[4],v[6]],
 	v[2] : [v[5]],
@@ -68,6 +62,52 @@ G = {
 	v[4] : [v[0],v[1]],
 	v[5] : [v[0],v[2]],
 	v[6] : [v[1]],
-	v[7] : [v[3]],
-	}
-'''
+	v[7] : [v[3]]
+	}	
+	
+print("\nGraaf 2 (onderstaand aan de opdracht):")		
+print(no_cycles(g2))
+
+
+
+
+#//////////////////////////////////////////////////////////////
+
+v = [Vertex(i) for i in range(8)]
+g3 = {
+	v[0] : [v[1],v[3]],
+	v[1] : [v[2],v[0]],
+	v[2] : [v[3],v[1]],
+	v[3] : [v[0],v[2]]
+	}	
+	
+print("\nGraaf 3 (gesloten vierkant):")		
+print(no_cycles(g3))
+
+
+
+
+#//////////////////////////////////////////////////////////////
+
+v = [Vertex(i) for i in range(8)]
+g4 = {
+	v[0] : [v[1]],
+	v[1] : [v[2],v[0]],
+	v[2] : [v[3],v[1]],
+	v[3] : [v[2]]
+	}	
+	
+print("\nGraaf 4 (open vierkant):")		
+print(no_cycles(g4))
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	

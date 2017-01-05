@@ -27,6 +27,19 @@ def vertices(G):
 def edges(G):
     return [(u,v) for u in vertices(G) for v in G[u]]
 
+v = [Vertex(i) for i in range(8)]
+
+G = {v[0]:[v[1],v[4]],
+     v[1]:[v[0],v[5]],
+     v[2]:[v[3],v[5],v[6]],
+     v[3]:[v[2],v[6],v[7]],
+     v[4]:[v[0]],
+     v[5]:[v[1],v[2],v[6]],
+     v[6]:[v[2],v[3],v[5],v[7]],
+     v[7]:[v[3],v[6]]}
+
+print("vertices(G):",vertices(G))
+print("edges(G):",edges(G))
 
 def clear(G): 
     for v in vertices(G):
@@ -43,6 +56,7 @@ def BFS(G,s):
             v.distance = INFINITY  # v krijgt het attribuut 'distance'
     q = myqueue()
     q.enqueue(s) 
+#    print("q:", q)
     while q:
         u = q.dequeue() 
         for v in G[u]:
@@ -50,8 +64,8 @@ def BFS(G,s):
                 v.distance = u.distance + 1
                 v.predecessor = u  # v krijgt het attribuut 'predecessor'
                 q.enqueue(v)
-
-
+#        print("q:", q)
+BFS(G,v[1])
 
 def show_tree_info(G):
     print('tree:', end = ' ')
@@ -64,6 +78,7 @@ def show_tree_info(G):
         print(')', end = ' ')
     print()
 
+show_tree_info(G)
 
 def show_sorted_tree_info(G):
     print('sorted tree:')
@@ -80,6 +95,7 @@ def show_sorted_tree_info(G):
         print(')', end = ' ')
     print()
 
+show_sorted_tree_info(G)
 
 def path_BFS(G,u,v):
     BFS(G,u)
@@ -92,5 +108,7 @@ def path_BFS(G,u,v):
         a.reverse()
     return a
     
+print("path_BFS(G,v[1],v[7]):",path_BFS(G,v[1],v[7]))
 
+clear(G)
 

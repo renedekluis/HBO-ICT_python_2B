@@ -5,6 +5,8 @@ from BFS import *
 
 def is_connected(G):
 	BFS(G,v[0])
+	#list(G.items()[0])
+	
 	for i in G:
 		if i.distance == INFINITY:
 			return False

@@ -43,11 +43,8 @@ def is_strongly_connected(G):
 		for value in values:
 			temp_graph[value] = []
 			temp_graph[value].append(key)
-			
-	if not is_connected(temp_graph):
-		return False
 	
-	return True
+	return is_connected(temp_graph)
 
 
 	

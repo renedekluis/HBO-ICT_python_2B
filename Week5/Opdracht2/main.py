@@ -49,7 +49,6 @@ print(no_cycles(g1))
 
 
 
-
 #//////////////////////////////////////////////////////////////
 
 #Graaf onderstaand aan de opdracht
@@ -89,7 +88,7 @@ print(no_cycles(g3))
 
 #//////////////////////////////////////////////////////////////
 
-v = [Vertex(i) for i in range(8)]
+v = [Vertex(i) for i in range(4)]
 g4 = {
 	v[0] : [v[1]],
 	v[1] : [v[2],v[0]],
@@ -101,7 +100,15 @@ print("\nGraaf 4 (open vierkant):")
 print(no_cycles(g4))
 
 
-
+v = [Vertex(i) for i in range(4)]
+g5 = {
+	v[0] : [v[1],v[2]],
+	v[1] : [v[0],v[2]],
+	v[2] : [v[1],v[0]]
+	}	
+	
+print("\nGraaf 5 (test):")		
+print(no_cycles(g5))
 	
 	
 	
